@@ -8,6 +8,9 @@ class MycartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(title: "My Cart"),
+      body: Column(
+        children: [],
+      ),
     );
   }
 }
