@@ -22,35 +22,40 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(title: "Payment Details"),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: [
-            SizedBox(
-                height: 65,
-                child: ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return CustomChoosepaymentContainer(
-                        onTap: () {
-                          setState(() {
-                            itemSelected = index;
-                          });
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: SizedBox(
+                    height: 65,
+                    child: ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return CustomChoosepaymentContainer(
+                            onTap: () {
+                              setState(() {
+                                itemSelected = index;
+                              });
+                            },
+                            imagePath: imagePathes[index],
+                            isActive: itemSelected == index,
+                          );
                         },
-                        imagePath: imagePathes[index],
-                        isActive: itemSelected == index,
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        width: 10,
-                      );
-                    },
-                    itemCount: 3)),
-            CustomCreditCard()
-          ],
+                        separatorBuilder: (context, index) {
+                          return const SizedBox(
+                            width: 10,
+                          );
+                        },
+                        itemCount: 3)),
+              ),
+              CustomCreditCard()
+            ],
+          ),
         ),
       ),
     );
