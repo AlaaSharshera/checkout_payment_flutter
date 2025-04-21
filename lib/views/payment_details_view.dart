@@ -1,14 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
 import 'package:payment_checkout/widgets/custom_choosepayment_container.dart';
 
-class PaymentDetailsView extends StatelessWidget {
+class PaymentDetailsView extends StatefulWidget {
   const PaymentDetailsView({super.key});
+
+  @override
+  State<PaymentDetailsView> createState() => _PaymentDetailsViewState();
+}
+
+class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   final List<String> imagePathes = const [
     "assets/images/small_card.png",
     "assets/images/paypal.png",
     "assets/images/apple_pay.png"
   ];
+  int itemSelected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +35,15 @@ class PaymentDetailsView extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return CustomChoosepaymentContainer(
-                          imagePath: imagePathes[index]);
+                        onTap: () {
+                          setState(() {
+                            itemSelected = index;
+                          });
+                          log("$itemSelected");
+                        },
+                        imagePath: imagePathes[index],
+                        isActive: itemSelected == index,
+                      );
                     },
                     separatorBuilder: (context, index) {
                       return const SizedBox(
