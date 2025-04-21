@@ -26,8 +26,13 @@ class ThankyouView extends StatelessWidget {
             child: CircleAvatar(
               radius: 40,
               backgroundColor: const Color(0xffEDEDED),
-              child: Image.asset(
-                'assets/images/icon_ok.png',
+              child: CircleAvatar(
+                radius: 30,
+                backgroundColor: const Color(0xff34A853),
+                child: Image.asset(
+                  width: 40,
+                  'assets/images/ok.png',
+                ),
               ),
             ),
           ),
