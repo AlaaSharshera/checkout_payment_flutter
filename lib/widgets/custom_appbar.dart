@@ -4,6 +4,8 @@ import 'package:payment_checkout/core/utils/styles.dart';
 PreferredSizeWidget customAppBar({String? title}) {
   return AppBar(
     centerTitle: true,
+    elevation: 0,
+    backgroundColor: Colors.transparent,
     leading: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
     title: Text(
       title!,

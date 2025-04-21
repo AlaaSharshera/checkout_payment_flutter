@@ -30,18 +30,13 @@ class MycartView extends StatelessWidget {
             customCheckoutRow(
                 service: "Discount", price: "\$0", style: Styles.style18),
             customCheckoutRow(
-                service: "Shipping", price: "\$8", style: Styles.style18),
-            const Spacer(
-              flex: 1,
-            ),
+                service: "Shipping", price: r"$8", style: Styles.style18),
             const Divider(
               indent: 20,
               endIndent: 20,
               color: Colors.black,
+              height: 40,
               thickness: 0.7,
-            ),
-            const Spacer(
-              flex: 1,
             ),
             customCheckoutRow(
                 service: "Total", price: "\$50.97", style: Styles.style24),
