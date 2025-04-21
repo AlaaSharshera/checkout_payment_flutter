@@ -21,6 +21,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: customAppBar(title: "Payment Details"),
       body: SingleChildScrollView(
         child: SizedBox(

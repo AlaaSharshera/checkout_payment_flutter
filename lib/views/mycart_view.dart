@@ -14,6 +14,7 @@ class MycartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: customAppBar(title: "My Cart"),
       body: SizedBox(
         width: double.infinity,
