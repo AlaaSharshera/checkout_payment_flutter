@@ -13,6 +13,7 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
   String cardNumber = "", expiryDate = "", cardHolderName = "", cvvCode = "";
   bool showBackView = false;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -32,6 +33,7 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
               expiryDate: expiryDate,
               cardHolderName: cardHolderName,
               cvvCode: cvvCode,
+              autovalidateMode: autovalidateMode,
               onCreditCardModelChange: (creditCardModel) {
                 cardNumber = creditCardModel.cardNumber;
                 expiryDate = creditCardModel.expiryDate;
@@ -41,7 +43,16 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
                 setState(() {});
               },
               formKey: formKey),
-          customButton(onPressed: () {}, text: "Complete payment")
+          customButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+              text: "Complete payment")
         ],
       ),
     );
