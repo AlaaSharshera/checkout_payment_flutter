@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:payment_checkout/core/utils/styles.dart';
 import 'package:payment_checkout/models/custom_checkout_model.dart';
