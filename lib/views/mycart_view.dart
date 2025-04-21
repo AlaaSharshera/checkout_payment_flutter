@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment_checkout/core/utils/styles.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
 import 'package:payment_checkout/widgets/custom_button.dart';
 import 'package:payment_checkout/widgets/custom_checkout_row.dart';
@@ -22,9 +23,14 @@ class MycartView extends StatelessWidget {
             const Spacer(
               flex: 1,
             ),
-            customCheckoutRow(service: "Order Subtotal", price: "\$42.97"),
-            customCheckoutRow(service: "Discount", price: "\$0"),
-            customCheckoutRow(service: "Shipping", price: "\$8"),
+            customCheckoutRow(
+                service: "Order Subtotal",
+                price: "\$42.97",
+                style: Styles.style18),
+            customCheckoutRow(
+                service: "Discount", price: "\$0", style: Styles.style18),
+            customCheckoutRow(
+                service: "Shipping", price: "\$8", style: Styles.style18),
             const Spacer(
               flex: 1,
             ),
@@ -38,7 +44,7 @@ class MycartView extends StatelessWidget {
               flex: 1,
             ),
             customCheckoutRow(
-                service: "Total", price: "\$50.97", fw: FontWeight.bold),
+                service: "Total", price: "\$50.97", style: Styles.style24),
             customButton(text: "Complete Payment", onPressed: () {}),
             const Spacer(
               flex: 1,
