@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
 import 'package:payment_checkout/widgets/custom_choosepayment_container.dart';
+import 'package:payment_checkout/widgets/custom_credit_card.dart';
 
 class PaymentDetailsView extends StatefulWidget {
   const PaymentDetailsView({super.key});
@@ -39,7 +38,6 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                           setState(() {
                             itemSelected = index;
                           });
-                          log("$itemSelected");
                         },
                         imagePath: imagePathes[index],
                         isActive: itemSelected == index,
@@ -50,7 +48,8 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                         width: 10,
                       );
                     },
-                    itemCount: 3))
+                    itemCount: 3)),
+            CustomCreditCard()
           ],
         ),
       ),
