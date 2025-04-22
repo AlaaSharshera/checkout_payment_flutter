@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
+import 'package:payment_checkout/widgets/custom_check_icon.dart';
 import 'package:payment_checkout/widgets/custom_side_circle.dart';
 import 'package:payment_checkout/widgets/dashed_border.dart';
 
@@ -33,22 +34,11 @@ class ThankyouView extends StatelessWidget {
               right: 0,
               left: 0,
               child: CircleAvatar(
-                radius: 40,
-                backgroundColor: const Color(0xffEDEDED),
-                child: CircleAvatar(
-                  radius: 30,
-                  backgroundColor: const Color(0xff34A853),
-                  child: Image.asset(
-                    width: 40,
-                    'assets/images/ok.png',
-                  ),
-                ),
-              ),
+                  radius: 40,
+                  backgroundColor: const Color(0xffEDEDED),
+                  child: customCheckIcon()),
             ),
-            const CustomSideCircle(
-              null,
-              -20,
-            ),
+            const CustomSideCircle(null, -20),
             const CustomSideCircle(-20, null)
           ],
         ),
