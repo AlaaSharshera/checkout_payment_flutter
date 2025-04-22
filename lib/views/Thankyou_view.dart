@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
+import 'package:payment_checkout/widgets/custom_side_circle.dart';
 import 'package:payment_checkout/widgets/dashed_border.dart';
 
 class ThankyouView extends StatelessWidget {
@@ -44,20 +45,11 @@ class ThankyouView extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              bottom: MediaQuery.of(context).size.height * 0.25,
-              left: -20,
-              child: const CircleAvatar(
-                backgroundColor: Colors.white,
-              ),
+            const CustomSideCircle(
+              null,
+              -20,
             ),
-            Positioned(
-              bottom: MediaQuery.of(context).size.height * 0.25,
-              right: -20,
-              child: const CircleAvatar(
-                backgroundColor: Colors.white,
-              ),
-            ),
+            const CustomSideCircle(-20, null)
           ],
         ),
       ),
