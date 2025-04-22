@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:payment_checkout/core/utils/styles.dart';
 import 'package:payment_checkout/models/custom_checkout_model.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
+import 'package:payment_checkout/widgets/custom_card_info.dart';
 import 'package:payment_checkout/widgets/custom_check_icon.dart';
 import 'package:payment_checkout/widgets/custom_checkout_row.dart';
+import 'package:payment_checkout/widgets/custom_divider.dart';
 import 'package:payment_checkout/widgets/custom_side_circle.dart';
 import 'package:payment_checkout/widgets/custom_thankyou_textrow.dart';
 import 'package:payment_checkout/widgets/dashed_border.dart';
@@ -52,22 +54,16 @@ class ThankyouView extends StatelessWidget {
                         boldText: "Time", normalText: "10:15 AM"),
                     const CustomThankyouTextrow(
                         boldText: "To", normalText: "Sam Louis"),
-                    Divider(
-                      color: Colors.grey.shade400,
-                      height: 40,
-                      indent: 8,
-                      endIndent: 8,
-                    ),
+                    CustomDivider(),
                     const CustomCheckoutRow(
                         checkoutModel: CustomCheckoutModel(
                             service: "Total",
                             price: r"$50.97",
                             textStyle: Styles.style24)),
-                    Spacer(),
-                    Positioned(
-                      right: 20,
-                      left: 20,
-                      bottom: (MediaQuery.of(context).size.height * 0.17) / 2,
+                    const CustomCardInfo(),
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -91,6 +87,11 @@ class ThankyouView extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(
+                        height:
+                            ((MediaQuery.of(context).size.height * 0.17 + 20) /
+                                    2) -
+                                29)
                   ],
                 ),
               ),
