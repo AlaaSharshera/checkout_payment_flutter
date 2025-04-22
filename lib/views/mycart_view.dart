@@ -15,7 +15,11 @@ class MycartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: customAppBar(title: "My Cart"),
+      appBar: customAppBar(
+          title: "My Cart",
+          onPressed: () {
+            Navigator.maybePop(context);
+          }),
       body: SizedBox(
         width: double.infinity,
         child: Column(

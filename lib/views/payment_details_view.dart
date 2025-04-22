@@ -22,7 +22,11 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: customAppBar(title: "Payment Details"),
+      appBar: customAppBar(
+          title: "Payment Details",
+          onPressed: () {
+            Navigator.maybePop(context);
+          }),
       body: SingleChildScrollView(
         child: SizedBox(
           width: double.infinity,

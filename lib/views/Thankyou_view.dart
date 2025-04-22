@@ -15,7 +15,11 @@ class ThankyouView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: customAppBar(title: " "),
+      appBar: customAppBar(
+          title: " ",
+          onPressed: () {
+            Navigator.maybePop(context);
+          }),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 50),
         child: Stack(
@@ -77,32 +81,6 @@ class ThankyouView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 45, horizontal: 32),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset("assets/images/barcode.png"),
-                          Container(
-                            width: 100,
-                            height: 58,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: const Color(0xff34A853),
-                                ),
-                                borderRadius: BorderRadius.circular(16)),
-                            child: const Text(
-                              "PAID",
-                              style: TextStyle(
-                                  color: Color(0xff34A853), fontSize: 22),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
                   ],
                 ),
               ),
@@ -112,6 +90,8 @@ class ThankyouView extends StatelessWidget {
                 right: 0,
                 left: 0,
                 child: const DashedBorder()),
+            const CustomSideCircle(null, -20),
+            const CustomSideCircle(-20, null),
             Positioned(
               top: -40,
               right: 0,
@@ -121,8 +101,32 @@ class ThankyouView extends StatelessWidget {
                   backgroundColor: const Color(0xffEDEDED),
                   child: customCheckIcon()),
             ),
-            const CustomSideCircle(null, -20),
-            const CustomSideCircle(-20, null)
+            Positioned(
+              right: 20,
+              left: 20,
+              bottom: (MediaQuery.of(context).size.height * 0.17) / 2,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset("assets/images/barcode.png"),
+                  Container(
+                    width: 100,
+                    height: 58,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: const Color(0xff34A853),
+                        ),
+                        borderRadius: BorderRadius.circular(16)),
+                    child: const Text(
+                      "PAID",
+                      style: TextStyle(color: Color(0xff34A853), fontSize: 22),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
