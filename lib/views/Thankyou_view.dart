@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
+import 'package:payment_checkout/widgets/dashed_border.dart';
 
 class ThankyouView extends StatelessWidget {
   const ThankyouView({super.key});
@@ -9,48 +10,56 @@ class ThankyouView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: customAppBar(title: " "),
-      body: Stack(
-        children: [
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 50),
-            decoration: BoxDecoration(
-                color: const Color(0xffEDEDED),
-                borderRadius: BorderRadius.circular(32)),
-          ),
-          Positioned(
-            top: 5,
-            right: 0,
-            left: 0,
-            child: CircleAvatar(
-              radius: 40,
-              backgroundColor: const Color(0xffEDEDED),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  color: const Color(0xffEDEDED),
+                  borderRadius: BorderRadius.circular(32)),
+            ),
+            Positioned(
+                bottom: MediaQuery.of(context).size.height * 0.25 + 20,
+                right: 0,
+                left: 0,
+                child: const DashedBorder()),
+            Positioned(
+              top: -40,
+              right: 0,
+              left: 0,
               child: CircleAvatar(
-                radius: 30,
-                backgroundColor: const Color(0xff34A853),
-                child: Image.asset(
-                  width: 40,
-                  'assets/images/ok.png',
+                radius: 40,
+                backgroundColor: const Color(0xffEDEDED),
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: const Color(0xff34A853),
+                  child: Image.asset(
+                    width: 40,
+                    'assets/images/ok.png',
+                  ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height * 0.25,
-            left: 10,
-            child: const CircleAvatar(
-              backgroundColor: Colors.white,
+            Positioned(
+              bottom: MediaQuery.of(context).size.height * 0.25,
+              left: -20,
+              child: const CircleAvatar(
+                backgroundColor: Colors.white,
+              ),
             ),
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.height * 0.25,
-            right: 10,
-            child: const CircleAvatar(
-              backgroundColor: Colors.white,
+            Positioned(
+              bottom: MediaQuery.of(context).size.height * 0.25,
+              right: -20,
+              child: const CircleAvatar(
+                backgroundColor: Colors.white,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
