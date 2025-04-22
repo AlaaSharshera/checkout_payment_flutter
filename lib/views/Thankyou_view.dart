@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:payment_checkout/core/utils/styles.dart';
+import 'package:payment_checkout/models/custom_checkout_model.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
 import 'package:payment_checkout/widgets/custom_check_icon.dart';
+import 'package:payment_checkout/widgets/custom_checkout_row.dart';
 import 'package:payment_checkout/widgets/custom_side_circle.dart';
 import 'package:payment_checkout/widgets/custom_thankyou_textrow.dart';
 import 'package:payment_checkout/widgets/dashed_border.dart';
@@ -15,7 +17,7 @@ class ThankyouView extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: customAppBar(title: " "),
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 50),
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -25,28 +27,88 @@ class ThankyouView extends StatelessWidget {
               decoration: BoxDecoration(
                   color: const Color(0xffEDEDED),
                   borderRadius: BorderRadius.circular(32)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Thank you",
-                    style: Styles.style25,
-                  ),
-                  Text(
-                    "Your transaction was successful",
-                    style: Styles.style20,
-                  ),
-                  const CustomThankyouTextrow(
-                      boldText: "Date", normalText: "01/24/2023"),
-                  const CustomThankyouTextrow(
-                      boldText: "Time", normalText: "10:15 AM"),
-                  const CustomThankyouTextrow(
-                      boldText: "To", normalText: "Sam Louis"),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Thank you",
+                      style: Styles.style25,
+                    ),
+                    Text(
+                      "Your transaction was successful",
+                      style: Styles.style20,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const CustomThankyouTextrow(
+                        boldText: "Date", normalText: "01/24/2023"),
+                    const CustomThankyouTextrow(
+                        boldText: "Time", normalText: "10:15 AM"),
+                    const CustomThankyouTextrow(
+                        boldText: "To", normalText: "Sam Louis"),
+                    Divider(
+                      color: Colors.grey.shade400,
+                      height: 40,
+                      indent: 8,
+                      endIndent: 8,
+                    ),
+                    const CustomCheckoutRow(
+                        checkoutModel: CustomCheckoutModel(
+                            service: "Total",
+                            price: r"$50.97",
+                            textStyle: Styles.style24)),
+                    Container(
+                      height: 73,
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 32, horizontal: 32),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24),
+                            child: Image.asset("assets/images/mastercard.png"),
+                          ),
+                          const Text("Credit Card\nMastercard **78 ")
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 45, horizontal: 32),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset("assets/images/barcode.png"),
+                          Container(
+                            width: 100,
+                            height: 58,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: const Color(0xff34A853),
+                                ),
+                                borderRadius: BorderRadius.circular(16)),
+                            child: const Text(
+                              "PAID",
+                              style: TextStyle(
+                                  color: Color(0xff34A853), fontSize: 22),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Positioned(
-                bottom: MediaQuery.of(context).size.height * 0.25 + 20,
+                bottom: MediaQuery.of(context).size.height * 0.17 + 20,
                 right: 0,
                 left: 0,
                 child: const DashedBorder()),

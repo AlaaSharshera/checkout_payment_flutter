@@ -6,7 +6,7 @@ class CustomSideCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: MediaQuery.of(context).size.height * 0.25,
+      bottom: MediaQuery.of(context).size.height * 0.17,
       left: left,
       right: right,
       child: const CircleAvatar(
