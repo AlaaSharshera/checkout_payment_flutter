@@ -20,11 +20,11 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
           onPressed: () {
             Navigator.maybePop(context);
           }),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: SizedBox(
           width: double.infinity,
           child: Column(
-            children: [CustomPaymentListview(), const CustomCreditCard()],
+            children: [CustomPaymentListview(), CustomCreditCard()],
           ),
         ),
       ),
