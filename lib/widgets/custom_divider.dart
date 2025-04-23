@@ -7,7 +7,7 @@ class CustomDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       color: Colors.grey.shade400,
-      height: 40,
+      height: 50,
       indent: 8,
       endIndent: 8,
     );

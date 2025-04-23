@@ -6,7 +6,7 @@ class CustomCardInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 73,
+      height: 85,
       width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
       decoration: BoxDecoration(

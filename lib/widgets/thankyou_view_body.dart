@@ -30,13 +30,19 @@ class ThankyouViewBody extends StatelessWidget {
               padding: const EdgeInsets.only(top: 40),
               child: Column(
                 children: [
-                  const Text(
-                    "Thank you",
-                    style: Styles.style25,
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      "Thank you",
+                      style: Styles.style25,
+                    ),
                   ),
-                  Text(
-                    "Your transaction was successful",
-                    style: Styles.style20,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      "Your transaction was successful",
+                      style: Styles.style20,
+                    ),
                   ),
                   const SizedBox(
                     height: 30,
