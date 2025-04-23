@@ -1,0 +1,2 @@
+D:/flutter_projects/payment_checkout/android/app/.cxx/Debug/1f2fy1b6/x86_64/CMakeFiles/edit_cache.dir
+D:/flutter_projects/payment_checkout/android/app/.cxx/Debug/1f2fy1b6/x86_64/CMakeFiles/rebuild_cache.dir
