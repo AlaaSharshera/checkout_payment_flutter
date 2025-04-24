@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payment_checkout/views/Thankyou_view.dart';
 
-void main() {
+void main() async {
+  Stripe.publishableKey =
+      "pk_test_51RH2bBIgCCjsMlEkgCPZdYr1Mxu25fvapVo09dkY10KhKQw9YQFIpR9lBNWXqTHVctWMunhL1infFeiS9wY4RX6q00JjSbiuro";
   runApp(const CheckoutApp());
 }
 
