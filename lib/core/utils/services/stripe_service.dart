@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payment_checkout/core/utils/api_keys.dart';
 import 'package:payment_checkout/core/utils/services/api_service.dart';
 import 'package:payment_checkout/models/payment_intent_input_model.dart';
@@ -20,5 +22,28 @@ class StripeService {
     } on DioException catch (e) {
       throw Exception(e.toString());
     }
+  }
+
+  Future<void> initPaymentSheet({required paymentIntentClientSecret}) async {
+    await Stripe.instance.initPaymentSheet(
+      paymentSheetParameters: SetupPaymentSheetParameters(
+        merchantDisplayName: 'Alaa',
+        paymentIntentClientSecret: paymentIntentClientSecret,
+        style: ThemeMode.dark,
+      ),
+    );
+  }
+
+  Future displayPayMentSheet() async {
+    await Stripe.instance.presentPaymentSheet();
+  }
+
+  Future makePayment(
+      {required PaymentIntentInputModel paymentInputModel}) async {
+    PaymentIntentModel paymentIntentModel =
+        await createPaymentIntent(paymentInputModel: paymentInputModel);
+    await initPaymentSheet(
+        paymentIntentClientSecret: paymentIntentModel.clientSecret);
+    await displayPayMentSheet();
   }
 }
