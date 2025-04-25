@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
@@ -13,13 +15,16 @@ class StripeService {
       var response = await ApiService().post(
           url: "https://api.stripe.com/v1/payment_intents",
           token: ApiKeys.secretKey,
+          contentType: Headers.formUrlEncodedContentType,
           body: paymentInputModel.toJson());
       if (response.statusCode == 200) {
         return PaymentIntentModel.fromJson(response.data);
       } else {
         throw Exception("something went wrong");
       }
-    } on DioException catch (e) {
+    } catch (e) {
+      log(e.toString());
+
       throw Exception(e.toString());
     }
   }
