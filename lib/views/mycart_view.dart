@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment_checkout/core/utils/styles.dart';
+import 'package:payment_checkout/cubits/payment_cubit/payment_cubit.dart';
 import 'package:payment_checkout/models/custom_checkout_model.dart';
 import 'package:payment_checkout/widgets/custom_appbar.dart';
 import 'package:payment_checkout/widgets/custom_bottom_sheet.dart';
@@ -51,7 +53,10 @@ class MycartView extends StatelessWidget {
                   showModalBottomSheet(
                       context: context,
                       builder: (context) {
-                        return const CustomBottomSheet();
+                        return BlocProvider<PaymentCubit>(
+                          create: (context) => PaymentCubit(),
+                          child: const CustomBottomSheet(),
+                        );
                       });
                 }),
           ],
