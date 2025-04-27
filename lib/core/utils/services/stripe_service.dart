@@ -14,7 +14,7 @@ class StripeService {
     try {
       var response = await ApiService().post(
           url: "https://api.stripe.com/v1/payment_intents",
-          token: ApiKeys.secretKey,
+          token: ApiKeys.secretKeyStripe,
           contentType: Headers.formUrlEncodedContentType,
           body: paymentInputModel.toJson());
       if (response.statusCode == 200) {
